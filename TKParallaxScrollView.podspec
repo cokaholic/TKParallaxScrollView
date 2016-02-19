@@ -8,33 +8,23 @@
 
 Pod::Spec.new do |s|
   s.name             = "TKParallaxScrollView"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of TKParallaxScrollView."
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  s.version          = "1.0.0"
+  s.summary          = "TKParallaxScrollView is the interactive moving library for header and middle views on scrollview."
 
   s.homepage         = "https://github.com/<GITHUB_USERNAME>/TKParallaxScrollView"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "cztatsumi-keisuke" => "tatsumi-keisuke@cyber-z.co.jp" }
   s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/TKParallaxScrollView.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/TK_u_nya'
 
-  s.platform     = :ios, '7.0'
+  s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
-  s.resource_bundles = {
-    'TKParallaxScrollView' => ['Pod/Assets/*.png']
-  }
+  s.source_files = 'Pod/Classes/*.{h,m}'
+  #s.resource_bundles = {
+  #  'TKParallaxScrollView' => ['Pod/Assets/*.png']
+  #}
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
 end
