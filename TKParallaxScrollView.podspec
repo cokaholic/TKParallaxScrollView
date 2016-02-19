@@ -11,10 +11,10 @@ Pod::Spec.new do |s|
   s.version          = "1.0.0"
   s.summary          = "TKParallaxScrollView is the interactive moving library for header and middle views on scrollview."
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/TKParallaxScrollView"
+  s.homepage         = "https://github.com/cztatsumi-keisuke/TKParallaxScrollView"
   s.license          = 'MIT'
   s.author           = { "cztatsumi-keisuke" => "tatsumi-keisuke@cyber-z.co.jp" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/TKParallaxScrollView.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/cztatsumi-keisuke/TKParallaxScrollView.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/TK_u_nya'
 
   s.platform     = :ios, '8.0'
