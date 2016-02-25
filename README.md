@@ -5,11 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/TKParallaxScrollView.svg?style=flat)](http://cocoapods.org/pods/TKParallaxScrollView)
 [![Platform](https://img.shields.io/cocoapods/p/TKParallaxScrollView.svg?style=flat)](https://developer.apple.com/iphone/index.action)
 
-![header:YES mid:YES](./SampleImages/test_h_y_m_y.gif "header:YES mid:YES")
 ![header:YES mid:NO](./SampleImages/test_h_y_m_n.gif "header:YES mid:NO")  
-![header:NO mid:YES](./SampleImages/test_h_n_m_y.gif "header:NO mid:YES")
-![header:NO mid:NO](./SampleImages/test_h_n_m_n.gif "header:NO mid:NO")
-
+**[Shrink Flags] header:YES mid:NO**
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
