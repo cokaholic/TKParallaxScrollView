@@ -41,8 +41,8 @@
                                                                withBaseScrollView:testScrollView
                                                                    withHeaderView:testHeaderView
                                                                       withMidView:testMidView
-                                                                    isShrinkHeaderView:NO
-                                                                  isShrinkMidView:NO];
+                                                                    isShrinkHeaderView:YES
+                                                                  isShrinkMidView:YES];
     scrollView.headerStopOffsetHeight = 64;
     [self.view addSubview:scrollView];
 }
