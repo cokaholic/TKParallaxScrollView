@@ -23,7 +23,7 @@
 - (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView;
 - (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView isShrinkViews:(BOOL)isShrink;
 - (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView;
-- (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView isShrinkViews:(BOOL)isShrink;
+- (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView isShrinkHeaderView:(BOOL)isShrinkHeaderView isShrinkMidView:(BOOL)isShrinkMidView;
 
 @end
 
