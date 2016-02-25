@@ -8,13 +8,12 @@
 
 #import "TKParallaxScrollView.h"
 
-static const CGFloat kNavigationBarHeight = 64;
-
 @interface TKParallaxScrollView () <UIScrollViewDelegate>
 
 @property (nonatomic, assign) CGFloat headerViewHeight;
 @property (nonatomic, assign) CGFloat midViewHeight;
-@property (nonatomic, assign) BOOL isShrink;
+@property (nonatomic, assign) BOOL isShrinkHeaderView;
+@property (nonatomic, assign) BOOL isShrinkMidView;
 
 @end
 
@@ -26,7 +25,8 @@ static const CGFloat kNavigationBarHeight = 64;
             withBaseScrollView:baseScrollView
                 withHeaderView:headerView
                    withMidView:nil
-                 isShrinkViews:YES];
+            isShrinkHeaderView:YES
+               isShrinkMidView:YES];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView isShrinkViews:(BOOL)isShrink {
@@ -35,7 +35,8 @@ static const CGFloat kNavigationBarHeight = 64;
             withBaseScrollView:baseScrollView
                 withHeaderView:headerView
                    withMidView:nil
-                 isShrinkViews:isShrink];
+            isShrinkHeaderView:isShrink
+               isShrinkMidView:YES];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView
@@ -44,10 +45,11 @@ static const CGFloat kNavigationBarHeight = 64;
             withBaseScrollView:baseScrollView
                 withHeaderView:headerView
                    withMidView:midView
-                 isShrinkViews:YES];
+            isShrinkHeaderView:YES
+               isShrinkMidView:YES];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView isShrinkViews:(BOOL)isShrink {
+- (instancetype)initWithFrame:(CGRect)frame withBaseScrollView:(UIScrollView *)baseScrollView withHeaderView:(UIView *)headerView withMidView:(UIView *)midView isShrinkHeaderView:(BOOL)isShrinkHeaderView isShrinkMidView:(BOOL)isShrinkMidView {
     
     self = [super initWithFrame:frame];
     if (self) {
@@ -55,7 +57,8 @@ static const CGFloat kNavigationBarHeight = 64;
         self.headerViewHeight = 0;
         self.midViewHeight = 0;
         self.headerStopOffsetHeight = 0;
-        self.isShrink = isShrink;
+        self.isShrinkHeaderView = isShrinkHeaderView;
+        self.isShrinkMidView = isShrinkMidView;
         
         [self setParallaxBaseScrollView:baseScrollView];
         if (headerView) {
@@ -92,6 +95,7 @@ static const CGFloat kNavigationBarHeight = 64;
     }
     
     _headerView = headerView;
+    _headerView.clipsToBounds = YES;
     [self addSubview:headerView];
     _headerViewHeight = (CGRectGetHeight(_headerView.frame)/CGRectGetWidth(_headerView.frame))*CGRectGetWidth(_baseScrollView.frame);
 }
@@ -104,6 +108,7 @@ static const CGFloat kNavigationBarHeight = 64;
     }
     
     _midView = midView;
+    _midView.clipsToBounds = YES;
     [self addSubview:midView];
     _midViewHeight = (CGRectGetHeight(_midView.frame)/CGRectGetWidth(_midView.frame))*CGRectGetWidth(_baseScrollView.frame);
     
@@ -132,10 +137,6 @@ static const CGFloat kNavigationBarHeight = 64;
     
     CGFloat offsetY = scrollView.contentOffset.y;
     
-    if (self.headerStopOffsetHeight==0) {
-        self.headerStopOffsetHeight = kNavigationBarHeight;
-    }
-    
     if (offsetY<=-(self.headerViewHeight + self.midViewHeight)) {
         _headerView.frame = CGRectMake(0, 0, self.frame.size.width, self.headerViewHeight);
         
@@ -144,7 +145,7 @@ static const CGFloat kNavigationBarHeight = 64;
         }
     }
     else if (offsetY<-(self.headerStopOffsetHeight + self.midViewHeight)) {
-        if (self.isShrink) {
+        if (self.isShrinkHeaderView) {
             _headerView.frame = CGRectMake(0, 0, self.frame.size.width, self.headerViewHeight - (self.headerViewHeight + self.midViewHeight + offsetY));
         }
         else {
@@ -156,25 +157,34 @@ static const CGFloat kNavigationBarHeight = 64;
         }
     }
     else if (offsetY<-self.headerStopOffsetHeight){
-        if (self.isShrink) {
+        if (self.isShrinkHeaderView) {
             _headerView.frame = CGRectMake(0, 0, self.frame.size.width, self.headerStopOffsetHeight);
-            
+        }
+        else {
+            _headerView.frame = CGRectMake(0, self.headerStopOffsetHeight - self.headerViewHeight, self.frame.size.width, self.headerViewHeight);
+        }
+        
+        if (self.isShrinkMidView) {
             if (_midView) {
                 _midView.frame = CGRectMake(0, CGRectGetMaxY(_headerView.frame), self.frame.size.width, self.midViewHeight - (offsetY + self.headerStopOffsetHeight + self.midViewHeight));
             }
         }
         else {
-            _headerView.frame = CGRectMake(0, self.headerStopOffsetHeight - self.headerViewHeight, self.frame.size.width, self.headerViewHeight);
-            
             if (_midView) {
                 _midView.frame = CGRectMake(0, CGRectGetMaxY(_headerView.frame) - (offsetY + self.headerStopOffsetHeight + self.midViewHeight), self.frame.size.width, self.midViewHeight);
             }
         }
     }
     else {
-        _headerView.frame = CGRectMake(0, 0, self.frame.size.width, self.headerStopOffsetHeight);
         
-        if (self.isShrink) {
+        if (self.isShrinkHeaderView) {
+            _headerView.frame = CGRectMake(0, 0, self.frame.size.width, self.headerStopOffsetHeight);
+        }
+        else {
+            _headerView.frame = CGRectMake(0, self.headerStopOffsetHeight - self.headerViewHeight, self.frame.size.width, self.headerViewHeight);
+        }
+        
+        if (self.isShrinkMidView) {
             if (_midView) {
                 _midView.frame = CGRectMake(0, CGRectGetMaxY(_headerView.frame), self.frame.size.width, 0);
             }
