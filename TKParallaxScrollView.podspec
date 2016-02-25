@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "TKParallaxScrollView"
-  s.version          = "1.0.0"
+  s.version          = "1.0.1"
   s.summary          = "TKParallaxScrollView is the interactive moving library for header and middle views on scrollview."
 
   s.homepage         = "https://github.com/cztatsumi-keisuke/TKParallaxScrollView"
