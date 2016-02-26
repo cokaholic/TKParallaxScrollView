@@ -10,6 +10,21 @@
 ![header:NO mid:YES](./SampleImages/test_h_n_m_y.gif "header:NO mid:YES")
 ![header:NO mid:NO](./SampleImages/test_h_n_m_n.gif "header:NO mid:NO")
 
+## Installation
+
+#### CocoaPods
+
+TKParallaxScrollView is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "TKParallaxScrollView"
+```
+
+#### Manually
+
+Add the [TKParallaxScrollView](./TKParallaxScrollView) directory to your project.
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -18,15 +33,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 - Xcode 7.0 or greater
 - iOS8.0 or greater
-
-## Installation
-
-TKParallaxScrollView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "TKParallaxScrollView"
-```
 
 ## Author
 
