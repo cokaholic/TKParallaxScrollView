@@ -7,14 +7,6 @@
 
 ![header:YES mid:NO](./SampleImages/test_h_y_m_n.gif "header:YES mid:NO")  
 **[Shrink Flags] header:YES mid:NO**
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
-## Requirements
-
-- Xcode 7.0 or greater
-- iOS8.0 or greater
 
 ## Installation
 
