@@ -34,7 +34,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Author
 
-cokaholic, tatsumi_keisuke@cyberagent.co.jp
+cokaholic, nietzsche.god.is.dead@gmail.com
 
 ## License
 
