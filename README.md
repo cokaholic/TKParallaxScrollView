@@ -34,7 +34,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Author
 
-cztatsumi-keisuke, tatsumi-keisuke@cyber-z.co.jp
+cokaholic, tatsumi_keisuke@cyberagent.co.jp
 
 ## License
 
